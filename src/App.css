@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Heebo", sans-serif; }
+
+html {
+  height: 100%;
+  overflow-x: hidden; }
+  html body {
+    background-color: black;
+    display: flex;
+    height: 100%;
+    flex-direction: column; }
+    html body::-webkit-scrollbar {
+      width: 10px;
+      /* width of the entire scrollbar */
+      cursor: pointer; }
+    html body::-webkit-scrollbar-track {
+      background: #000e57;
+      /* color of the tracking area */ }
+    html body::-webkit-scrollbar-thumb {
+      background-color: blue;
+      /* color of the scroll thumb */
+      border-radius: 20px;
+      /* roundness of the scroll thumb */
+      border: 3px solid #000e57;
+      /* creates padding around scroll thumb */ }
+
+footer {
+  margin-top: auto;
+  background: aliceblue; }
+
+.header__app {
+  background-color: #000e57;
+  height: 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 5; }
+  .header__app .button__burger {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10; }
+    .header__app .button__burger .hamburger {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      height: 5px;
+      background-color: aliceblue;
+      transform: translate(-50%, -50%);
+      transition: .5s; }
+      .header__app .button__burger .hamburger::before, .header__app .button__burger .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: aliceblue;
+        transform: translate(-50%, -50%);
+        transition: .5s; }
+      .header__app .button__burger .hamburger::before {
+        top: -5px;
+        left: 50%; }
+      .header__app .button__burger .hamburger::after {
+        top: 10px;
+        left: 50%; }
+  .header__app .button__burger.active .hamburger {
+    background-color: transparent; }
+    .header__app .button__burger.active .hamburger::before {
+      top: 0;
+      transform: rotate(45deg);
+      left: 0; }
+    .header__app .button__burger.active .hamburger::after {
+      top: 0;
+      transform: rotate(135deg);
+      left: 0; }
+  .header__app .nav__app {
+    background-color: #000e57;
+    transform: translateX(0);
+    transition: transform .5s ease-out;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 5; }
+    .header__app .nav__app .block__items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+      position: relative; }
+      .header__app .nav__app .block__items .items {
+        padding: 10px 0;
+        list-style: none;
+        position: relative;
+        display: inline-block; }
+        .header__app .nav__app .block__items .items a {
+          text-decoration: none;
+          color: aliceblue;
+          position: relative; }
+          .header__app .nav__app .block__items .items a:hover {
+            color: #858585;
+            transition: color, font-weight .3s;
+            font-weight: bold; }
+            .header__app .nav__app .block__items .items a:hover:after {
+              width: 100%;
+              transition: width .3s; }
+          .header__app .nav__app .block__items .items a:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #858585;
+            transition: width .3s; }
+        .header__app .nav__app .block__items .items a.active {
+          color: #858585;
+          font-weight: bold; }
+          .header__app .nav__app .block__items .items a.active:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(75, 75, 75, 0.54); }
+  .header__app .nav__app.no-active {
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform .5s ease-out; }
+
+main #home {
+  height: 100vh;
+  background-image: url("./images/code-t.jpg");
+  background-size: cover;
+  background-color: rgba(107, 107, 107, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; }
+  main #home .filter {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.53);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0; }
+  main #home #text {
+    color: aliceblue;
+    z-index: 4; }
+    main #home #text h1 {
+      font-size: 3em; }
+
+main #profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #000e57;
+  position: relative; }
+  main #profile div:first-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    main #profile div:first-child img {
+      width: 50%; }
+  main #profile div:last-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    main #profile div:last-child p {
+      font-size: 1.5rem;
+      line-height: 3rem;
+      font-weight: bold;
+      color: #ffae00; }
+      main #profile div:last-child p span {
+        font-weight: normal;
+        color: white; }
+  main #profile .SectionRight > p:first-child span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(1000%); }
+  main #profile .SectionRight > p:nth-child(2) span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(2000%); }
+  main #profile .SectionRight > p:nth-child(3) span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(2500%); }
+  main #profile .SectionRight > p:nth-child(4) span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(3000%); }
+  main #profile .SectionRight > p:nth-child(5) span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(3500%); }
+  main #profile .SectionRight > p:nth-child(6) span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(4000%); }
+  main #profile .SectionRight > p:nth-child(7) span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(4500%); }
+  main #profile .SectionRight > p:nth-child(8) span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(5000%); }
+  main #profile .SectionRight > p:nth-child(9) span {
+    display: inline-block;
+    position: absolute;
+    z-index: 200;
+    transform: translateX(5500%); }
+  main #profile .SectionRightCenter > p:first-child span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 1s ease-out; }
+  main #profile .SectionRightCenter > p:nth-child(2) span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 1.2s ease-out; }
+  main #profile .SectionRightCenter > p:nth-child(3) span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 1.4s ease-out; }
+  main #profile .SectionRightCenter > p:nth-child(4) span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 1.6s ease-out; }
+  main #profile .SectionRightCenter > p:nth-child(5) span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 1.8s ease-out; }
+  main #profile .SectionRightCenter > p:nth-child(6) span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 2s ease-out; }
+  main #profile .SectionRightCenter > p:nth-child(7) span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 2.2s ease-out; }
+  main #profile .SectionRightCenter > p:nth-child(8) span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 2.4s ease-out; }
+  main #profile .SectionRightCenter > p:nth-child(9) span {
+    display: inline-block;
+    position: initial;
+    z-index: 200;
+    transform: translateX(0%);
+    transition: transform 2.6s ease-out; }
+
+main #formations {
+  width: 100%;
+  padding: 50px 0;
+  background-color: #000e57;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  main #formations h3 {
+    padding: 30px 40px 10px 40px;
+    font-weight: bold;
+    color: #ffae00; }
+  main #formations p {
+    padding: 0 50px;
+    color: aliceblue; }
+  main #formations section {
+    position: relative; }
+    main #formations section .SectionRight {
+      position: absolute;
+      z-index: 200;
+      transform: translateX(-150%);
+      transition: transform 1.8s ease-out; }
+    main #formations section .SectionRightCenter {
+      position: initial;
+      z-index: 200;
+      transform: translateX(0%);
+      transition: transform 1.8s ease-out; }
+    main #formations section .SectionLeft {
+      position: absolute;
+      z-index: 200;
+      transform: translateX(150%);
+      transition: transform 1.8s ease-out; }
+    main #formations section .SectionLeftCenter {
+      position: initial;
+      z-index: 200;
+      transform: translateX(0%);
+      transition: transform 1.8s ease-out; }
+
+main #competences {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color: #000e57;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; }
+  main #competences div {
+    width: 15%; }
+    main #competences div img {
+      width: 100%; }
